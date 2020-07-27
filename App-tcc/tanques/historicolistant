@@ -1,0 +1,331 @@
+import React, { Component } from 'react';
+import { Dimensions, StyleSheet,Text, View, ScrollView, Button } from 'react-native';
+import { Table, TableWrapper, Row } from 'react-native-table-component';
+import {PieChart,LineChart, Grid,XAxis, YAxis} from 'react-native-svg-charts';
+
+export default props => {
+
+    // props.state = {
+    //            tableHead: ['ID Tanque', 'ID Placa', 'Acelerômetro', 'Temp. Água', 'Temp. Placa', 'Tensão', 'Gás', 'Luminosidade'],
+    //            widthArr: [50, 60, 100, 80, 80, 70, 60, 100]
+    //          }
+ 
+    const temperatura_p = [];   
+    const tensao = [];   
+    const gas = [];  
+    const acelerometro = [];  
+    const temperatura_a = []; 
+    const luminosidade = [];    
+    const createdAt = [];
+    const axesSvg = { fontSize: 10, fill: 'grey' };
+    const verticalContentInset = { top: 10, bottom: 10 }
+    const xAxisHeight = 30
+    const screenWidth = Dimensions.get('window').width
+
+    const renderRows = () => {
+        const data = []      
+        const list = props.list || [];
+        list.map(tanques => (             
+            <View key={tanques._id}  >
+            {temperatura_p.push(parseInt(`${tanques.s_temperatura_p}`))}; 
+            {tensao.push(parseInt(`${tanques.s_tensao}`))};  
+            {gas.push(parseInt(`${tanques.s_gas}`))}; 
+            {acelerometro.push(parseInt(`${tanques.s_acelerometro}`))};  
+            {temperatura_a.push(parseInt(`${tanques.s_temperatura_a}`))}; 
+            {luminosidade.push(parseInt(`${tanques.s_luminosidade}`))};   
+            {createdAt.push(parseInt(`${tanques.createdAt}`))};     
+            </View>
+        
+        ))
+        { renderRows2() }
+    }
+
+   const keyHandler = (e) => {
+      if (e.key === 'Enter') {
+          e.shiftKey ? props.handleSearch() : props.handleAdd()
+      } else if (e.key === 'Escape') {
+          props.handleClear()
+      }
+  }
+
+
+     const handlePress = () => {
+       console.log("teste");
+       props.handleSearch(); 
+
+     }
+     const renderRows2 = () => {
+        return ( 
+        <ScrollView  > 
+         <View>
+         <Text style={{ width:358 }}></Text>          
+         
+         
+        
+
+         <View>
+         <Text style={{ width:358 }}></Text>          
+         <Text  style={{textAlign:'center'}} >Temperatura da Placa</Text>
+         <Button
+         onPress = {handlePress}
+         title = "Red button!"
+         color = "red"
+         />
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={temperatura_p}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+             
+             
+             <View style={{ height: 200, padding: 20 }}>                    
+             <ScrollView horizontal={true}>                 
+                    <LineChart 
+                      style={{ width:600}}
+                      data = {temperatura_p}                                         
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}                     
+                      svg={{stroke: '#8800cc' }} >      
+                      <Grid />
+                      </LineChart>                                                                            
+                      <View>
+                      <XAxis
+                        style={{ width:400, marginTop:50}}
+                         data={createdAt}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />  
+                      </View>
+                 </ScrollView>              
+              
+             </View> 
+            
+               
+            
+         </View>
+         </View>
+
+                 <View>
+         <Text style={{ width:358 }}></Text>      
+         <Text  style={{textAlign:'center'}} >Tensão da Placa</Text>    
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={tensao}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+              
+             <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                      style={{ flex: 1 }}
+                      data ={tensao}
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}
+                      svg={{stroke: '#8800cc' }}>      
+                      <Grid />
+                      </LineChart> 
+                      <XAxis
+                         style={{ marginHorizontal: -10, height: xAxisHeight}}
+                         data={tensao}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />
+             </View>
+             
+         </View>
+         </View>
+
+         <View>
+         <Text style={{ width:358 }}></Text>      
+         <Text  style={{textAlign:'center'}} >Sensor de gás</Text>    
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={gas}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+             <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                      style={{ flex: 1 }}
+                      data ={gas}
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}
+                      svg={{stroke: '#8800cc' }}>      
+                      <Grid />
+                      </LineChart> 
+                      <XAxis
+                         style={{ marginHorizontal: -10, height: xAxisHeight}}
+                         data={gas}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />
+             </View>
+         </View>
+         </View>
+
+         <View>
+         <Text style={{ width:358 }}></Text>   
+         <Text  style={{textAlign:'center'}} >Acelerômetro</Text>       
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={acelerometro}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+             <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                      style={{ flex: 1 }}
+                      data ={acelerometro}
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}
+                      svg={{stroke: '#8800cc' }}>      
+                      <Grid />
+                      </LineChart> 
+                      <XAxis
+                         style={{ marginHorizontal: -10, height: xAxisHeight}}
+                         data={acelerometro}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />
+             </View>
+         </View>
+         </View>
+
+         
+         <View>
+         <Text style={{ width:358 }}></Text>          
+         <Text  style={{textAlign:'center'}} >Temperatura da Água</Text>
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={temperatura_a}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+             <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                      style={{ flex: 1 }}
+                      data ={temperatura_a}
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}
+                      svg={{stroke: '#8800cc' }}>      
+                      <Grid />
+                      </LineChart> 
+                      <XAxis
+                         style={{ marginHorizontal: -10, height: xAxisHeight}}
+                         data={temperatura_a}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />
+             </View>
+         </View>
+         </View>
+
+         <View>
+         <Text style={{ width:358 }}></Text>  
+         <Text  style={{textAlign:'center'}} >Luminosidade</Text>        
+         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+             <YAxis
+                 data={luminosidade}
+                 style={{ marginBottom: xAxisHeight }}
+                  contentInset={verticalContentInset}
+                  svg={axesSvg}
+             />
+             <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                      style={{ flex: 1 }}
+                      data ={luminosidade}
+                      // data ={[ parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`), parseInt(`${tanques.id_placa}`)]}           
+                      contentInset={{ top: 20, bottom: 20 }}
+                      svg={{stroke: '#8800cc' }}>      
+                      <Grid />
+                      </LineChart> 
+                      <XAxis
+                         style={{ marginHorizontal: -10, height: xAxisHeight}}
+                         data={luminosidade}
+                         formatLabel={(value, index) => index}
+                         contentInset={{ left: 10, right: 10 }}
+                         svg={axesSvg}
+                      />
+             </View>
+         </View>
+         </View>
+
+         </View> 
+         </ScrollView> )  
+     }
+
+    
+    const functionButton = () => {
+      console.log('Pressed!');
+    }
+    
+    return (
+         <View>         
+                    
+         <View>         
+              {             
+              renderRows()          
+              }  
+         </View>
+         <View>         
+              {             
+              renderRows2()          
+              }  
+         </View>
+         </View>
+ /* 
+          <View >
+         <ScrollView horizontal={true}>
+           <View>
+             <Table borderStyle={{borderColor: '#C1C0B9'}}>
+     { <Row data={state.tableHead} widthArr={state.widthArr} style={styles.head} textStyle={styles.text}/> }
+             </Table>
+             <ScrollView >
+               <Table borderStyle={{borderColor: '#C1C0B9'}}>
+                 {
+                   renderRows()
+                 }
+               </Table>
+             </ScrollView>
+           </View>
+         </ScrollView>
+       </View>
+*/
+       )
+       } 
+
+
+const styles = StyleSheet.create({
+    container: { 
+      flex: 1, 
+      padding: 16, 
+      paddingTop: 30, 
+      backgroundColor: '#ffffff' 
+    },
+    head: { 
+      height: 50, 
+      backgroundColor: '#6F7BD9' 
+    },
+    text: { 
+      textAlign: 'center', 
+      fontWeight: '200' 
+    },
+    dataWrapper: { 
+      marginTop: -1 
+    },
+    row: { 
+      height: 40, 
+      backgroundColor: '#F7F8FA' 
+    }
+  });

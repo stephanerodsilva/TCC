@@ -1,0 +1,94 @@
+import React, { Component } from 'react';
+import { StyleSheet,Text, View, ScrollView, Button } from 'react-native';
+import { Table, TableWrapper, Row } from 'react-native-table-component';
+
+export default props => {
+
+    // props.state = {
+    //            tableHead: ['ID Tanque', 'ID Placa', 'Acelerômetro', 'Temp. Água', 'Temp. Placa', 'Tensão', 'Gás', 'Luminosidade'],
+    //            widthArr: [50, 60, 100, 80, 80, 70, 60, 100]
+    //          }
+
+    const renderRows = () => {
+        const list = props.list || [];
+        return list.map(tanques => (
+            <ScrollView horizontal={true}  >
+            <View key={tanques._id}  >
+        
+            <Table >
+            { <Row data={['ID Placa', 'Temp. Placa', 'Tensão', 'Gás']} widthArr={[60, 70, 100, 80]} style={styles.head} textStyle={styles.text}/> }
+            { <Row data= {[tanques.id_placa,tanques.s_temperatura_p,tanques.s_tensao,tanques.s_gas]} />}                    
+            </Table>
+            
+         </View>
+         </ScrollView>    
+        ))
+    }
+
+ 
+    const functionButton = () => {
+      console.log('Pressed!');
+    }
+    
+    return (
+         <View>         
+                     {/* <Text>Tanques Cadastrados</Text>                
+                     <Text>ID Tanque</Text>
+                     <Text>ID Placa</Text>
+                     <Text>Acelerômetro</Text>
+                     <Text>Temp Água</Text>
+                     <Text>Temp Placa</Text>
+                     <Text>Tensão</Text>
+                     <Text>Gás</Text>
+                     <Text>Luminosidade</Text>                  */}
+          
+             <View>
+             
+              {renderRows()}  
+             </View>
+         </View>
+ /* 
+          <View >
+         <ScrollView horizontal={true}>
+           <View>
+             <Table borderStyle={{borderColor: '#C1C0B9'}}>
+     { <Row data={state.tableHead} widthArr={state.widthArr} style={styles.head} textStyle={styles.text}/> }
+             </Table>
+             <ScrollView >
+               <Table borderStyle={{borderColor: '#C1C0B9'}}>
+                 {
+                   renderRows()
+                 }
+               </Table>
+             </ScrollView>
+           </View>
+         </ScrollView>
+       </View>
+*/
+       )
+       } 
+
+
+const styles = StyleSheet.create({
+    container: { 
+      flex: 1, 
+      padding: 16, 
+      paddingTop: 30, 
+      backgroundColor: '#ffffff' 
+    },
+    head: { 
+      height: 50, 
+      backgroundColor: '#6F7BD9' 
+    },
+    text: { 
+      textAlign: 'center', 
+      fontWeight: '200' 
+    },
+    dataWrapper: { 
+      marginTop: -1 
+    },
+    row: { 
+      height: 40, 
+      backgroundColor: '#F7F8FA' 
+    }
+  });
