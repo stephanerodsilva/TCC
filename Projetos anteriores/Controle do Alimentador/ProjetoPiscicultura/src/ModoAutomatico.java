@@ -1,0 +1,587 @@
+
+import java.awt.Font;
+import javax.swing.ButtonGroup;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author stephane
+ */
+public class ModoAutomatico extends javax.swing.JFrame {
+String serverIP="";
+int tipo=0;
+String serverPort="";
+double deslProt[] ={0,0,0,0,0,0,0,0,0};
+int freqDiaria=0;
+int quantDias[] ={0,0,0,0,0,0,0,0,0};
+
+    public ModoAutomatico(String dispositivo, String porta, String cardume, int tipo) {
+        initComponents();
+        serverIP=dispositivo;
+       serverPort=porta;
+       jLabel1.setFont(new Font("Courier", Font.BOLD + Font.ITALIC, 26));
+       this.tipo=tipo;
+       cardumeX.setText("Cardume de "+cardume);
+        
+       
+      if(tipo==1)
+    {
+   periodo1.setText("Periodo: 5 dias - Ração em pó com frequência diária de 6 vezes - Peso médio de 0.5g a 1g"); 
+   periodo2.setText("Periodo: 5 dias - Ração em pó com frequência diária de 6 vezes - Peso médio de 1g a 1.7g");
+  periodo3.setText("Periodo: 5 dias - Ração em pó com frequência diária de 6 vezes - Peso médio de 1.7g a 2.5g");
+  periodo4.setText("Periodo: 5 dias - Ração em pó com frequência diária de 6 vezes - Peso médio de 2.5g a 3.5g");
+ periodo5.setText("Periodo: 5 dias - Ração em pó com frequência diária de 6 vezes - Peso médio de 3.5g a 5g");
+  periodo6.setVisible(false);
+   periodo7.setVisible(false); 
+   periodo8.setVisible(false);
+   periodo9.setVisible(false);
+    }
+      if(tipo==2)
+    {
+   periodo1.setText("Periodo: 6 dias - Ração de 1mm a 2mm com frequência diária de 4 vezes - Peso médio de 5g a 8.5g");
+   periodo2.setText("Periodo: 6 dias - Ração de 1mm a 2mm com frequência diária de 4 vezes - Peso médio de 8.5g a 13g");
+    periodo3.setText("Periodo: 6 dias - Ração de 1mm a 2mm com frequência diária de 4 vezes - Peso médio de 13g a 19g");
+   periodo4.setText("Periodo: 6 dias - Ração de 1mm a 2mm com frequência diária de 4 vezes - Peso médio de 19g a 27g");
+    periodo5.setVisible(false);
+   periodo6.setVisible(false);
+   periodo7.setVisible(false); 
+   periodo8.setVisible(false);
+   periodo9.setVisible(false);
+    }
+    if(tipo==3)
+       {     
+           
+   periodo1.setText("Periodo: 7 dias - Ração de 2mm a 4mm com frequência diária de 3 vezes - Peso médio de 27g a 39g");
+   periodo2.setText("Periodo: 7 dias - Ração de 2mm a 4mm com frequência diária de 3 vezes - Peso médio de 39g a 54g");
+   periodo3.setText("Periodo: 7 dias - Ração de 2mm a 4mm com frequência diária de 3 vezes - Peso médio de 54g a 72g");
+  periodo4.setVisible(false);
+   periodo5.setVisible(false);
+   periodo6.setVisible(false);
+   periodo7.setVisible(false); 
+   periodo8.setVisible(false);
+   periodo9.setVisible(false);
+       }
+    
+     if(tipo==4)
+       {     
+   periodo1.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 72g a 93g");
+ periodo2.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 93g a 117g");
+  periodo3.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 117g a 143g");
+ periodo4.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 143g a 172g");
+  periodo5.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 172g a 205g");
+  periodo6.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 205g a 240g");
+  periodo7.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 240g a 278g");
+  periodo8.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 278g a 318g");
+ periodo9.setText("Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 318g a 360g");
+ 
+       }
+    
+    if(tipo==5)
+       {  
+   periodo1.setText("Periodo: 7 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 360g a 405g");
+  periodo2.setText("Periodo: 14 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 405g a 500g");
+   periodo3.setText("Periodo: 14 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 500g a 603g");
+  periodo4.setText("Periodo: 14 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 603g a 718g");
+  periodo5.setText("Periodo: 14 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 718g a 840g");
+    periodo6.setText("Periodo: 14 dias - Ração de 6mm a 8mm com frequência diária de 3 vezes - Peso médio de 840g a 961g");
+  periodo7.setVisible(false); 
+   periodo8.setVisible(false);
+   periodo9.setVisible(false);
+       }
+    
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        cardumeX = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        dataInicial = new javax.swing.JFormattedTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        periodo1 = new javax.swing.JCheckBox();
+        periodo2 = new javax.swing.JCheckBox();
+        periodo3 = new javax.swing.JCheckBox();
+        periodo4 = new javax.swing.JCheckBox();
+        periodo5 = new javax.swing.JCheckBox();
+        periodo6 = new javax.swing.JCheckBox();
+        periodo7 = new javax.swing.JCheckBox();
+        periodo8 = new javax.swing.JCheckBox();
+        periodo9 = new javax.swing.JCheckBox();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(172, 193, 249));
+
+        cardumeX.setText("Cardume: ");
+
+        jLabel2.setText("Determine o período e o número de alimentações:");
+
+        jLabel3.setText("Informe a data inicial da alimentação:");
+
+        dataInicial.setBackground(new java.awt.Color(23, 84, 247));
+        try {
+            dataInicial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jButton1.setBackground(new java.awt.Color(23, 84, 247));
+        jButton1.setText("Enviar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(23, 84, 247));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Modo Automático");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(325, 325, 325)
+                .addComponent(jLabel1)
+                .addContainerGap(508, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        periodo1.setText("Periodo 1");
+
+        periodo2.setText("Periodo 2");
+
+        periodo3.setText("Periodo 3");
+
+        periodo4.setText("Periodo 4");
+
+        periodo5.setText("Periodo 5");
+
+        periodo6.setText("Periodo 6");
+
+        periodo7.setText("Periodo 7");
+
+        periodo8.setText("Periodo 8");
+
+        periodo9.setText("Periodo 9");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(periodo1)
+                    .addComponent(periodo2)
+                    .addComponent(periodo3)
+                    .addComponent(periodo4)
+                    .addComponent(periodo5)
+                    .addComponent(periodo6)
+                    .addComponent(periodo7)
+                    .addComponent(periodo8)
+                    .addComponent(periodo9))
+                .addContainerGap(354, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(periodo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(periodo7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(periodo8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(periodo9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(dataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cardumeX)
+                                    .addComponent(jLabel2))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(236, 236, 236))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(cardumeX)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(dataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(40, 40, 40))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+           if(tipo==1)
+    {
+   if(periodo1.isSelected())
+   {
+   deslProt[0]=0.75;
+   quantDias[0]=1;
+   }
+    if(periodo2.isSelected())
+   {
+   deslProt[1]=1.35;
+   quantDias[1]=2;
+   }
+   if(periodo3.isSelected())
+   {
+   deslProt[2]=2.1;  
+   quantDias[2]=3;
+   }
+    if(periodo4.isSelected())
+   {
+   deslProt[3]=3;
+   quantDias[3]=5;
+   }
+     if(periodo5.isSelected())
+   {
+   deslProt[4]=4.25;
+   quantDias[4]=5;
+   }
+   deslProt[5]=0;
+   quantDias[5]=0;
+   deslProt[6]=0;
+   quantDias[6]=0;
+   deslProt[7]=0;
+   quantDias[7]=0;
+   deslProt[8]=0;
+   quantDias[8]=0;
+   freqDiaria=3;
+    }
+      if(tipo==2)
+    {
+   if(periodo1.isSelected())
+   {
+   deslProt[0]=6.75;
+   quantDias[0]=6;
+   }
+    if(periodo2.isSelected())
+   {
+   deslProt[1]=10.75;
+   quantDias[1]=6;
+   }
+    if(periodo3.isSelected())
+   {
+   deslProt[2]=16;
+   quantDias[2]=6;
+   }
+    if(periodo4.isSelected())
+   {
+   deslProt[3]=23;
+   quantDias[3]=6;
+   }
+   deslProt[4]=0;
+   quantDias[4]=0;
+   deslProt[5]=0;
+   quantDias[5]=0;
+   deslProt[6]=0;
+   quantDias[6]=0;
+   deslProt[7]=0;
+   quantDias[7]=0;
+   deslProt[8]=0;
+   quantDias[8]=0;
+   freqDiaria=6;
+    }
+    if(tipo==3)
+       {     
+   if(periodo1.isSelected())
+   {
+   deslProt[0]=33;
+   quantDias[0]=7;
+   }
+    if(periodo2.isSelected())
+   {
+   deslProt[1]=46.5;
+   quantDias[1]=7;
+   }
+  if(periodo3.isSelected())
+   {
+   deslProt[2]=63;
+   quantDias[2]=7;
+   }
+   deslProt[3]=0;
+   quantDias[3]=0;
+   deslProt[4]=0;
+   quantDias[4]=0;
+   deslProt[5]=0;
+   quantDias[5]=0;
+   deslProt[6]=0;
+   quantDias[6]=0;
+   deslProt[7]=0;
+   quantDias[7]=0;
+   deslProt[8]=0;
+   quantDias[8]=0;
+  freqDiaria=3;
+       }
+    
+     if(tipo==4)
+       { 
+           
+   if(periodo1.isSelected())
+   {
+   deslProt[0]=0;
+   quantDias[0]=7;
+   }
+   if(periodo2.isSelected())
+   {
+   deslProt[1]=1.2;
+   quantDias[1]=7;
+   }
+  if(periodo3.isSelected())
+   {
+   deslProt[2]=1.32;
+   quantDias[2]=7;
+   }
+   if(periodo4.isSelected())
+   {
+   deslProt[3]=1.48;
+   quantDias[3]=7;
+   }
+  if(periodo5.isSelected())
+   {
+   deslProt[4]=1.68;
+   quantDias[4]=7;
+   }
+   if(periodo6.isSelected())
+   {
+   deslProt[5]=1.87;
+   quantDias[5]=7;
+   }
+   if(periodo7.isSelected())
+   {
+   deslProt[6]=2;
+   quantDias[6]=7;
+   }
+  if(periodo8.isSelected())
+   {
+   deslProt[7]=2.2;
+   quantDias[7]=7;
+   }
+   if(periodo9.isSelected())
+   {
+   deslProt[8]=2.33; 
+   quantDias[8]=7;
+   }
+   freqDiaria=3;
+       }
+    
+    if(tipo==5)
+       {  
+   if(periodo1.isSelected())
+   {
+   deslProt[0]=382.5;
+   quantDias[0]=7;
+   }
+   if(periodo2.isSelected())
+   {
+   deslProt[1]=452.5;
+   quantDias[1]=14;
+   }
+  if(periodo3.isSelected())
+   {
+   deslProt[2]=551.5;
+   quantDias[2]=14;
+   }
+   if(periodo4.isSelected())
+   {
+   deslProt[3]=660.5;
+   quantDias[3]=14;
+   }
+   if(periodo5.isSelected())
+   {
+   deslProt[4]=779;
+   quantDias[4]=14;
+   }
+    if(periodo6.isSelected())
+   {
+   deslProt[5]=900.5;
+   quantDias[5]=14;
+   }
+   deslProt[6]=0;
+   quantDias[6]=0;
+   deslProt[7]=0;
+   quantDias[7]=0;
+   deslProt[8]=0;
+   quantDias[8]=0;
+   deslProt[9]=0;
+   quantDias[9]=0;
+   freqDiaria=3;
+       }
+    
+        Tanque tanque = null;
+        tanque = new Tanque(serverIP,serverPort,quantDias,dataInicial.getText(),freqDiaria,deslProt); //63 dias com frequência diária de 3 vezes
+    tanque.setVisible(true);
+    dispose();
+        
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+   Cardume c = null;
+        c = new Cardume(serverIP,serverPort);   
+    c.setVisible(true);
+    dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ModoAutomatico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ModoAutomatico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ModoAutomatico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ModoAutomatico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cardumeX;
+    private javax.swing.JFormattedTextField dataInicial;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JCheckBox periodo1;
+    private javax.swing.JCheckBox periodo2;
+    private javax.swing.JCheckBox periodo3;
+    private javax.swing.JCheckBox periodo4;
+    private javax.swing.JCheckBox periodo5;
+    private javax.swing.JCheckBox periodo6;
+    private javax.swing.JCheckBox periodo7;
+    private javax.swing.JCheckBox periodo8;
+    private javax.swing.JCheckBox periodo9;
+    // End of variables declaration//GEN-END:variables
+}

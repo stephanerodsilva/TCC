@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo Automático"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Cardume de Tilápia:"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Determine o período e o número de alimentações:"
+            />
+
+
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 72g a 93g"
+                android:layout_marginBottom="8dp"
+                />
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 93g a 117g"
+                android:layout_marginBottom="24dp"
+                />
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 117g a 143g"
+                android:layout_marginBottom="24dp"
+                />
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 143g a 172g"
+                android:layout_marginBottom="24dp"
+                />
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 172g a 205g"
+                android:layout_marginBottom="24dp"
+                />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 205g a 240g"
+            android:layout_marginBottom="24dp"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 240g a 278g"
+            android:layout_marginBottom="24dp"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 278g a 318g"
+            android:layout_marginBottom="24dp"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodo: 7 dias - Ração de 4mm a 6mm com frequência diária de 3 vezes - Peso médio de 318g a 360g"
+            android:layout_marginBottom="24dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informe a data inicial de alimentacao"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="__________"
+                android:layout_marginBottom="16dp"
+                />
+        </LinearLayout>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Enviar"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Voltar"
+            />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
