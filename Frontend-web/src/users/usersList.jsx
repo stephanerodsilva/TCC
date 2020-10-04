@@ -8,6 +8,7 @@ export default props => {
         return list.map(users => (
             <tr key={users._id}>
                  <td className={''}>{users.username}</td>
+                 <td className={''}>{users.password}</td>
                 <td>
                     <IconButton style='danger' icon='trash-o'  
                         onClick={() => props.handleRemove(users)}></IconButton>

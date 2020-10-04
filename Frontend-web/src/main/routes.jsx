@@ -9,12 +9,12 @@ import Tanque from '../tanques/tanques'
 
 export default props => (
     <Router history={hashHistory}>
-        <Route path='/todos' component={Todo} />
+        {/* <Route path='/todos' component={Todo} /> */}
         <Route path='/about' component={About} />
         <Route path='/users' component={Users} />
         <Route path='/tanques' component={Tanque} />
 
         
-        <Redirect from='*' to='/todos' />
+        <Redirect from='*' to='/about' />
     </Router>
 )

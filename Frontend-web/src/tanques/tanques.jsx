@@ -144,8 +144,8 @@ export default class Tanques extends Component {
     render() {
         return (
             <div>
-                <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
-                <TanquesForm 
+                <PageHeader name='Tanques' ></PageHeader>
+                {/* <TanquesForm 
 
                     id_tanque     = {this.state.id_tanque}
                     id_placa      = {this.state.id_placa}
@@ -171,7 +171,7 @@ export default class Tanques extends Component {
                     handleClear={this.handleClear}
                   
                     />
-                    
+                     */}
                    <TanquesList 
                     list={this.state.list}
                     handleRemove={this.handleRemove} />

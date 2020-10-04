@@ -8,7 +8,6 @@ export default props => {
         return list.map(tanques => (
             <tr key={tanques._id}>
                  <td className={''} >{tanques.createdAt}</td>
-                 <td className={''}>{tanques.id_placa}</td>
                  <td className={''}>{tanques.s_acelerometro}</td>
                  <td className={''}>{tanques.s_temperatura_a}</td>
                  <td className={''}>{tanques.s_temperatura_p}</td>
@@ -25,14 +24,9 @@ export default props => {
 
     return (
         <table className='table'>
-            <thead>
+            <thead>                
                 <tr>
-                    <th>Tanques Cadastrados</th>
-                    
-                </tr>                
-                <tr>
-                    <th>ID Tanque</th>
-                    <th>ID Placa</th>
+                    <th>Data</th>
                     <th>Acelerômetro</th>
                     <th>Temp Água</th>
                     <th>Temp Placa</th>

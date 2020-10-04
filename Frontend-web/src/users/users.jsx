@@ -5,7 +5,7 @@ import PageHeader from '../template/pageHeader'
 import TodoForm from './usersForm'
 import TodoList from './usersList'
 
-const URL = 'http://192.168.0.102:3003/api/users'
+const URL = 'http://192.168.0.150:3003/api/users'
 
 export default class Users extends Component {
     constructor(props) {
@@ -61,7 +61,7 @@ export default class Users extends Component {
     render() {
         return (
             <div>
-                <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
+                <PageHeader name='Cadastro de Usuários' ></PageHeader>
                 <TodoForm 
                     username={this.state.username}
                     password={this.state.password}

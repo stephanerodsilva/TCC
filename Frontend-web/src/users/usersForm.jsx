@@ -19,11 +19,13 @@ export default props => {
                     onChange={props.handleChangeu}
                     onKeyUp={keyHandler}
                     value={props.username}></input>
+                 <h1></h1>
                   <input id='password' className='form-control'
                     placeholder='Cadastre uma senha'
                     onChange={props.handleChangep}
                     onKeyUp={keyHandler}
                     value={props.password}></input>
+                    <h1></h1>
             </Grid>
             <Grid cols='12 3 2'>
                 <IconButton style='primary' icon='plus'
