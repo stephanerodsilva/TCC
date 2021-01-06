@@ -20,7 +20,7 @@
     "pm2": "^2.1.5"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "debug": "^4.1.1",
     "express-pino-logger": "^4.0.0",
     "http": "0.0.0",
