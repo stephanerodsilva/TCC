@@ -34,7 +34,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "react-native": "^0.61.5",
+    "react-native": "^0.62.3",
     "socket.io-client": "^2.3.0"
   }
 }
